@@ -1,5 +1,5 @@
 # Project Exam 2
-There are two options with this Project Exam. 
+There are two options with this Project Exam.
 You need to only choose one and please follow the deliveries carefully.
 
 ## Goal
@@ -49,7 +49,7 @@ A local tourism agency in Bergen is launching a new website called ‘Holidaze�
 
 The project requires you to create the visitor side of the website where users can search accommodation and make enquiries, as well as the administration side where properties can be added and enquiries managed.
 
-You will need to create an API to store the data for the establishments, enquiries and contact submissions. You can choose to use WordPress or Strapi as a Headless CMS, but it is very important that the API is deployed and publicly available. Please do not submit any files for your API. Only submit the website you have created. 
+You will need to create an API to store the data for the establishments, enquiries and contact submissions. You can choose to use WordPress or Strapi as a Headless CMS, but it is very important that the API is deployed and publicly available. Please do not submit any files for your API. Only submit the website you have created.
 
 ## Requirements for the Website
 
@@ -73,11 +73,11 @@ Week 3 to 6: Coding
 Week 7: Bug Fixing
 
 ### Level 1 Process
-- Start by planning out the project. 
+- Start by planning out the project.
 - Next begin your research of likely users and browse competitor websites for ideas.
 - Create a style guide
 - Build an Adobe XD prototype (or you can use Sketch or Figma).
-- Start coding. 
+- Start coding.
 - Once you’ve finished development, start looking for bugs and ensure the site functions well on all viewports. Test the code on different devices. Because your API is public, the code shouldn’t rely on a local API.
 - Refactor your code.
 - Ask another student to look over your code and ask them if they can see how it might be better implemented. This is important to get an outside view on your code. Please attach this feedback to your report.

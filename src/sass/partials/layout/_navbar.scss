@@ -1,0 +1,60 @@
+.logo {
+  max-width: 200px;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.navbar {
+  padding: 10px 0;
+  border-bottom: 2px solid $primary;
+
+  .nav-link {
+    font-family: $font-family-sans-serif;
+    font-weight: 400;
+  }
+
+  .nav-link.active,
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+
+  .login-menu {
+    width: 70px;
+    margin-right: 10px;
+    margin-left: auto;
+    text-align: center;
+    background-color: $primary;
+    color: $white !important;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.navbar-collapse.show {
+  margin-top: 30px;
+
+  .login-menu {
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+}
+
+.navbar-toggler {
+  border-color: transparent !important;
+}
+
+.dropdown {
+  .dropdown-menu.show li a {
+    text-transform: none;
+  }
+}
+
+#search-form {
+  .form-control {
+      max-width: 200px;
+  }
+}
