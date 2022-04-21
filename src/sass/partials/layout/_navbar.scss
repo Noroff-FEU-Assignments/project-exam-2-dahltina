@@ -31,6 +31,9 @@
     a {
       text-decoration: none;
     }
+    &:hover {
+      color: $white !important;
+    }
   }
 }
 
@@ -45,12 +48,6 @@
 
 .navbar-toggler {
   border-color: transparent !important;
-}
-
-.dropdown {
-  .dropdown-menu.show li a {
-    text-transform: none;
-  }
 }
 
 #search-form {
