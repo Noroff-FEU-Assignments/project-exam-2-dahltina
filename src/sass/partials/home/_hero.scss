@@ -1,0 +1,41 @@
+.border-bottom {
+  border-bottom: 2px solid $primary;
+}
+
+.border-top {
+  border-top: 2px solid $primary;
+}
+
+.intro-container {
+  max-width: 800px !important;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn {
+    display: block;
+  }
+}
+
+.intro-text {
+  font-size: $font-size-base * 2;
+  text-align: center;
+}
+
+.hero-img {
+  border-top: 2px solid $primary;
+  border-bottom: 2px solid $primary;
+  padding: 20px 0;
+}
+
+@media (min-width: 960px) {
+  .hero-img {
+    padding: 40px 0 50px 0;
+  }
+}

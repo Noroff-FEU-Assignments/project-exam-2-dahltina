@@ -1,1 +1,1 @@
-export const API = "https://holidaze.tinadahl.no/wp-json/wc/store/products";
+export const BASE_API = "https://holidaze.tinadahl.no/wp-json/";

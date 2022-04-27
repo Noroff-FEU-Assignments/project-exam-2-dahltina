@@ -1,4 +1,4 @@
-import logo from "../../logo.png";
+import logo from "../../images/logo.png";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
@@ -25,8 +25,8 @@ function Layout() {
             <NavLink to="/why-bergen" exact className="nav-link text-uppercase">
               Why Bergen
             </NavLink>
-            <NavLink to="/accomodation" className="nav-link text-uppercase">
-              Accomodation
+            <NavLink to="/accommodation" className="nav-link text-uppercase">
+              Accommodation
             </NavLink>
             <NavLink to="/contact" className="nav-link text-uppercase">
               Contact
@@ -40,15 +40,13 @@ function Layout() {
           </Form.Group>
         </Navbar.Collapse>
     </Navbar>
-    <Container>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/why-bergen" element={<WhyBergen />} />
-        <Route path="/accomodation" element={<Accomodation />} />
+        <Route path="/accommodation" element={<Accomodation />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
       </Routes>
-    </Container>
   </Router>
  );
 }
