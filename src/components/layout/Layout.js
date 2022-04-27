@@ -2,9 +2,9 @@ import logo from "../../images/logo.png";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
-import Container from "react-bootstrap/Container";
 import Home from "../home/Home";
 import Accomodation from "../accomodation/Accomodation";
+import AccommodationDetails from "../accomodation/AccommodationDetails";
 import Contact from "../contact/Contact";
 import Login from "../login/Login";
 import WhyBergen from "../why-bergen/WhyBergen";
@@ -44,6 +44,7 @@ function Layout() {
         <Route exact path="/" element={<Home />} />
         <Route path="/why-bergen" element={<WhyBergen />} />
         <Route path="/accommodation" element={<Accomodation />} />
+        <Route path="/accommodation/:id" element={<AccommodationDetails />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
       </Routes>

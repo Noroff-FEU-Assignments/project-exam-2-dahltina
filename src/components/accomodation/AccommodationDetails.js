@@ -4,9 +4,9 @@ import Container from 'react-bootstrap/Container';
 import { BASE_API } from '../../constants/api';
 import Heading from '../typography/Heading';
 
-const url = BASE_API + "wp/v2/accommodations";
+const url = BASE_API + "wp/v2/accommodations/";
 
-export default function AccommodationDetails() {
+export default function AccomodationDetails() {
 
   const [accommodation, setAccommodation] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,7 +14,7 @@ export default function AccommodationDetails() {
 
   const { id } = useParams();
 
-  const api = url + id + "?_embed";
+  const api = url + id;
 
   useEffect(function() {
     async function getData() {
@@ -50,7 +50,7 @@ export default function AccommodationDetails() {
 
   return (
     <Container className="mt-5">
-      <Heading title={item.title.rendered} />
+      <Heading Tag="h1" title={accommodation.title.rendered} />
     </Container>
   )
 }
