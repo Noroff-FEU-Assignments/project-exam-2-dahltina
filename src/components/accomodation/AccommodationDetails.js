@@ -73,14 +73,14 @@ export default function AccomodationDetails() {
         </Row>
 
         <Row>
-          <Col className="d-flex flex-column col-12 col-md-7">
+          <Col className="d-flex flex-column col-12 col-lg-7">
             <Heading Tag="h1" title={accommodation.title.rendered} />
             <Heading Tag="h5" title={accommodation.acf.location} />
-            <Paragraph Tag="p" content={accommodation.content.rendered} />
+            <div className="my-5" dangerouslySetInnerHTML={{ __html: accommodation.content.rendered }} />
             <Heading Tag="h3" title="Facilities" />
             <Paragraph Tag="p" content={accommodation.acf.facilities} />
           </Col>
-          <Col className="d-flex align-items-end flex-column">
+          <Col className="d-flex col-lg-5 align-items-lg-end flex-column">
             <BookingForm />
           </Col>
         </Row>
@@ -89,5 +89,6 @@ export default function AccomodationDetails() {
     </>
   )
 }
+
 
 // <Image src={accommodation.acf.rating} width="150px"/>
