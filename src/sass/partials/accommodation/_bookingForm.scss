@@ -1,0 +1,35 @@
+.booking-form {
+  background-color: $highlight;
+}
+
+#booking-form {
+  padding: 20px;
+  background-color: $highlight;
+  max-width: 340px;
+
+  input,
+  textarea,
+  select,
+  label
+  input[name="startDate"],
+  input[name="endDate"] {
+    width: 300px;
+    max-width: 300px;
+    font-family: $font-family-sans-serif;
+  }
+
+  input[name="startDate"],
+  input[name="endDate"] {
+    padding: 0.375rem 0.75rem;
+    color: $secondary;
+    font-family: $font-family-sans-serif;
+    font-size: 1rem;
+    border-radius: 0;
+    border: 1px solid $primary;
+  }
+
+  .btn {
+    width: 300px;
+  }
+
+}
