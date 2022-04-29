@@ -5,7 +5,7 @@ import AccommodationList from "../accomodation/AccommodationList";
 import HeroImg from "./HeroImg";
 import Paragraph from "../typography/Paragraph";
 import Button from "react-bootstrap/Button";
-import BookStay from "./BookStay";
+import BookStayForm from "../forms/BookStayForm";
 import ExperienceList from "../experiences/ExperienceList";
 import Footer from "../layout/Footer";
 
@@ -34,7 +34,7 @@ export default function Home() {
           <Button className="my-3">See more</Button>
         </Link>
       </Container>
-      <BookStay />
+      <BookStayForm />
       <Container>
         <Heading Tag="h3" title="Experiences"  className="mb-4"/>
         <ExperienceList />

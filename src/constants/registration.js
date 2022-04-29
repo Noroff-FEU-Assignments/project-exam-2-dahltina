@@ -9,5 +9,11 @@ export const GUESTS = [
   { value: "5", label: "5" },
   { value: "6", label: "6" }
 ];
+export const SUBJECT = [
+  { value: "Booking", label: "Booking" },
+  { value: "Experiences", label: "Experiences" },
+  { value: "Cancellation", label: "Cancellation" },
+  { value: "Other", label: "Other" },
+];
 export const EMAIL_REGEX =
 /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

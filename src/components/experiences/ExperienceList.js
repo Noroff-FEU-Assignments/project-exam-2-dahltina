@@ -1,6 +1,7 @@
 import { useState, useEffect} from "react";
 import { BASE_API } from "../../constants/api";
 import ExperienceItem from "./ExperienceItem";
+import Spinner from "react-bootstrap/Spinner";
 
 const url = BASE_API + "wp/v2/experiences";
 
@@ -37,7 +38,11 @@ export default function ExperienceList() {
   }, []);
 
   if (loading) {
-    return <div>loading..</div>
+    return <div class="text-center">
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+            </div>
   }
 
   if (error) {

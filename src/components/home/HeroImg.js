@@ -1,5 +1,6 @@
 import { useState, useEffect} from "react";
 import { BASE_API } from "../../constants/api";
+import Spinner from "react-bootstrap/Spinner";
 
 const url = BASE_API + "wp/v2/image";
 
@@ -36,7 +37,11 @@ export default function HeroImg() {
   }, []);
 
   if (loading) {
-    return <div>loading..</div>
+    return <div class="text-center">
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+            </div>
   }
 
   if (error) {

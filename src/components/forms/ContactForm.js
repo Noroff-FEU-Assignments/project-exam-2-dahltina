@@ -1,4 +1,4 @@
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useState } from "react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -26,13 +26,13 @@ const schema = yup.object().shape({
   message: yup
     .string()
     .required("Please write your message. Must be at least 10 characters")
-    .min(MINIMUM_MESSAGE_CHARACTERS, `Your name must at be at least ${MINIMUM_MESSAGE_CHARACTERS} characters`),
+    .min(MINIMUM_MESSAGE_CHARACTERS, `Your message must at be at least ${MINIMUM_MESSAGE_CHARACTERS} characters`),
 });
 
 export default function BookingForm() {
 
   const [submitted, setSubmitted] = useState(false);
-  const { register, handleSubmit, control, formState: { errors }} = useForm({ resolver: yupResolver(schema) });
+  const { register, handleSubmit, formState: { errors }} = useForm({ resolver: yupResolver(schema) });
 
   function onSubmit(data) {
       console.log(data);
@@ -70,10 +70,10 @@ export default function BookingForm() {
           {errors.subject && <ValidationError>{errors.subject.message}</ValidationError>}
         </Form.Group>
 
-        <InputGroup className="mb-3" {...register("message")}>
-          <FormControl as="textarea" aria-label="With textarea" placeholder="Message" />
-          {errors.message && <ValidationError>{errors.message.message}</ValidationError>}
+        <InputGroup className="mb-3">
+          <FormControl as="textarea" aria-label="With textarea" placeholder="Message" {...register("message")}/>
         </InputGroup>
+        {errors.message && <ValidationError>{errors.message.message}</ValidationError>}
 
         <Button variant="primary" type="submit" className="mt-3">
           Submit
@@ -85,3 +85,12 @@ export default function BookingForm() {
 
 
 
+{/* <Form.Group className="py-2">
+<Controller
+  name="subject"
+  control={control}
+  render={({ field }) => <Select options={SUBJECT} {...field} />}
+  {...register("subject")}
+/>
+{errors.subject && <ValidationError>{errors.subject.message}</ValidationError>}
+</Form.Group> */}

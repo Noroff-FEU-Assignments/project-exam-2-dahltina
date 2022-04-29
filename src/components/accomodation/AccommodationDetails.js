@@ -10,6 +10,7 @@ import Paragraph from "../typography/Paragraph";
 import Footer from "../layout/Footer";
 import BookingForm from "../forms/BookingForm";
 import RoomTypes from "./RoomTypes";
+import Spinner from "react-bootstrap/Spinner";
 
 const url = BASE_API + "wp/v2/accommodations/";
 
@@ -53,7 +54,11 @@ export default function AccomodationDetails() {
   }, [])
 
   if (loading) {
-    return <div>Loading..</div>
+    return <div class="text-center">
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+            </div>
   }
 
   if (error) {

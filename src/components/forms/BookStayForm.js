@@ -9,7 +9,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-export default function BookStay() {
+export default function BookStayForm() {
 
   const [startDate, setStartDate] = useState(new Date());
   const [dayAfter, setDayAfter] = useState(new Date(startDate.getTime() + 86400000));
