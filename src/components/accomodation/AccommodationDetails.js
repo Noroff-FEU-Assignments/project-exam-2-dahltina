@@ -9,6 +9,7 @@ import Heading from "../typography/Heading";
 import Paragraph from "../typography/Paragraph";
 import Footer from "../layout/Footer";
 import BookingForm from "../forms/BookingForm";
+import RoomTypes from "./RoomTypes";
 
 const url = BASE_API + "wp/v2/accommodations/";
 
@@ -81,7 +82,7 @@ export default function AccomodationDetails() {
             <Paragraph Tag="p" content={accommodation.acf.facilities} />
           </Col>
           <Col className="d-flex col-lg-5 align-items-lg-end flex-column">
-            <BookingForm />
+            <RoomTypes />
           </Col>
         </Row>
       </Container>
