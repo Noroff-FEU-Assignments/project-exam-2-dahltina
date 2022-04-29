@@ -1,0 +1,17 @@
+.contact-wrapper {
+  max-width: 1100px !important;
+}
+
+.contact-info,
+#contact-form {
+  padding: 2rem;
+}
+
+.contact-info {
+  background-color: $tertiary;
+  max-width: 320px;
+}
+
+#contact-form {
+  background-color: $highlight;
+}

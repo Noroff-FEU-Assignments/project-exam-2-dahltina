@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Container className="my-5">
-        <Heading Tag="h1" title="ACCOMMODATION IN BERGEN" className="text-center"/>
+        <Heading Tag="h1" title="ACCOMMODATION AND EXPERIENCES IN BERGEN" className="text-center"/>
         <HeroImg className="my-5 border-top border-bottom"/>
         <Container className="my-5 intro-container">
           <Heading Tag="h2" className="intro-h2" title="Welcome to Bergen!" />
@@ -24,7 +24,9 @@ export default function Home() {
               Bergen is the ideal combination of nature, culture and
               exciting urban life all year around."
           />
-          <Button className="my-3">Read More</Button>
+          <Link to="/why-bergen">
+            <Button className="my-3">Read More</Button>
+          </Link>
         </Container>
         <Heading Tag="h3" title="Popular Resorts" className="mb-4"/>
         <AccommodationList />

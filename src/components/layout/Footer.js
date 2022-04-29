@@ -1,7 +1,9 @@
 import logo from "../../images/logo-light.png";
 import Container from "react-bootstrap/Container";
+import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import ContactInfo from "../contact/ContactInfo";
 
 export default function Footer() {
   return (
@@ -10,16 +12,14 @@ export default function Footer() {
         <Row>
           <Col className="d-flex flex-column col-6 col-md-2">
             <img src={logo} alt="logo" width="180px"/>
-            <p className="mt-4">Bergen Brygge 10 <br />
-              1222 Bergen <br />
-              Norway</p>
-            <p>Tel: <a href="#">+47 00 00 00 00</a></p>
-            <p>Mail: <a href="#">hello@holidaze.com</a></p>
+            <ContactInfo />
           </Col>
           <Col className="d-flex flex-column col-6 col-md-2 mt-0">
             <h3>Help</h3>
             <p><a href="#">About</a></p>
-            <p><a href="#">Contact us</a></p>
+            <Link to="/contact">
+              <p>Contact us</p>
+            </Link>
             <p><a href="#">Covid 19</a></p>
             <p><a href="#">Privacy Policy</a></p>
             <p><a href="#">Terms and conditions</a></p>

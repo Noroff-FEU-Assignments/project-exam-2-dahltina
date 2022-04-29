@@ -75,6 +75,10 @@ body {
   color: $primary !important;
 }
 
+.footer {
+  margin-top: 200px;
+}
+
 // images
 img {
   max-width: 100%;
@@ -88,9 +92,11 @@ img {
 @import "partials/typography/typography";
 @import "partials/layout/navbar";
 @import "partials/layout/footer";
+@import "partials/forms/forms";
 @import "partials/home/hero";
 @import "partials/home/card";
 @import "partials/home/planBook";
+@import "partials/contact/contact";
 @import "partials/accommodation/accommodation";
 @import "partials/accommodation/roomTypes";
 @import "partials/accommodation/bookingForm";
