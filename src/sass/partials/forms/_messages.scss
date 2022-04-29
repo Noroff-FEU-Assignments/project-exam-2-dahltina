@@ -3,6 +3,12 @@
   border-color: $tertiary !important;
 }
 
+.alert-danger {
+  background-color: $pink !important;
+  border-color: $pink !important;
+  color: $danger !important;
+}
+
 .form-error {
   padding-top: 10px;
   color: $danger;

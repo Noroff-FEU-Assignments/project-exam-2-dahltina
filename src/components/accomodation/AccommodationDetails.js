@@ -11,6 +11,7 @@ import Footer from "../layout/Footer";
 import BookingForm from "../forms/BookingForm";
 import RoomTypes from "./RoomTypes";
 import Spinner from "react-bootstrap/Spinner";
+import Alert from "react-bootstrap/Alert";
 
 const url = BASE_API + "wp/v2/accommodations/";
 
@@ -62,7 +63,9 @@ export default function AccomodationDetails() {
   }
 
   if (error) {
-    return <div>Error</div>
+    return <Alert className="alert-danger text-center">
+              An error occured while trying to fetch details
+            </Alert>
   }
 
   return (

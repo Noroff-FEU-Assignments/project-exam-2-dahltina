@@ -1,6 +1,7 @@
 import { useState, useEffect} from "react";
 import { BASE_API } from "../../constants/api";
 import Spinner from "react-bootstrap/Spinner";
+import Alert from "react-bootstrap/Alert";
 
 const url = BASE_API + "wp/v2/image";
 
@@ -45,7 +46,9 @@ export default function HeroImg() {
   }
 
   if (error) {
-    return <div>An error occured</div>
+    return <Alert className="alert-danger text-center">
+              An error occured while trying to fetch header image
+            </Alert>
   }
 
   return (
