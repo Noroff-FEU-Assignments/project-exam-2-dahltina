@@ -33,6 +33,9 @@ const schema = yup.object().shape({
   guests: yup
     .number()
     .required("Please select how many guests will be staying"),
+  rooms: yup
+    .number()
+    .required("Plese select how many rooms you would like to book"),
   message: yup
     .string()
 });
@@ -99,8 +102,21 @@ export default function BookingForm() {
             <option value="3">4</option>
             <option value="3">5</option>
             <option value="3">6</option>
+            <option value="3">7</option>
+            <option value="3">8</option>
           </Form.Select>
           {errors.guests && <ValidationError>{errors.guests.message}</ValidationError>}
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Select className="mb-3" {...register("rooms")}>
+            <option>Rooms</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="3">4</option>
+          </Form.Select>
+          {errors.rooms && <ValidationError>{errors.rooms.message}</ValidationError>}
         </Form.Group>
 
         <Form.Group className="mb-3" >
