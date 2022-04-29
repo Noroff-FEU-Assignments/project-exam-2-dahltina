@@ -7,8 +7,6 @@ import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Alert from "react-bootstrap/Alert";
-// import Row from "react-bootstrap/Row";
-// import Col from "react-bootstrap/Col";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { GUESTS, EMAIL_REGEX, MINIMUM_NAME_CHARACTERS } from "../../constants/registration";

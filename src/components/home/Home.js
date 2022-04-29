@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import Heading from "../typography/Heading";
 import AccommodationList from "../accomodation/AccommodationList";
@@ -27,7 +28,9 @@ export default function Home() {
         </Container>
         <Heading Tag="h3" title="Popular Resorts" className="mb-4"/>
         <AccommodationList />
-        <Button className="my-3">See more</Button>
+        <Link to="/accommodation">
+          <Button className="my-3">See more</Button>
+        </Link>
       </Container>
       <BookStay />
       <Container>
