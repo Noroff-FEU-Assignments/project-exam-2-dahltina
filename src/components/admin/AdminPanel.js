@@ -7,6 +7,7 @@ import Paragraph from "../typography/Paragraph";
 import { getUsername } from "../../hooks/useLocalStorage";
 import GetMessages from "./GetMessages";
 import GetEnquiries from "./GetEnquiries";
+import { Link } from "react-router-dom";
 
 export default function AdminPanel() {
 
@@ -27,9 +28,13 @@ export default function AdminPanel() {
             <GetEnquiries />
           </Col>
           <Col className="col-12 col-lg-2">
-            <Heading Tag="h5" title="Actions" />
-            <div className="add-accommodation-btn my-5">Add accommodation</div>
-            <div className="add-accommodation-btn my-5">Edit accommodation</div>
+          <Heading Tag="h5" title="Actions" />
+          <div className="my-4">
+          <div className="add-accommodation-btn mb-3">
+            <Link to="/add-accommodation">Add accommodation</Link>
+          </div>
+            <div className="add-accommodation-btn">Edit accommodation</div>
+          </div>
           </Col>
         </Row>
       </Container>

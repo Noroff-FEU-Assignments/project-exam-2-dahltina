@@ -8,3 +8,15 @@
 .admin-enquiry {
   background-color: $background-color;
 }
+
+.add-accommodation-btn {
+  text-align: center;
+  background-color: $tertiary;
+  color: $primary;
+  font-family: $font-family-sans-serif;
+  padding: 2rem 1rem;
+
+  a {
+    text-decoration: none;
+  }
+}

@@ -18,7 +18,7 @@ const url = BASE_API + "wp/v2/messages";
 const schema = yup.object().shape({
   name: yup
     .string()
-    .required("Please enter your name")
+    .required("Please eginter your name")
     .min(MINIMUM_NAME_CHARACTERS, `Your name must at be at least ${MINIMUM_NAME_CHARACTERS} characters`),
   email: yup
     .string()
