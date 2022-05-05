@@ -34,6 +34,9 @@
     &:hover {
       color: $white !important;
     }
+    &.logout {
+      width: 85px;
+    }
   }
 }
 

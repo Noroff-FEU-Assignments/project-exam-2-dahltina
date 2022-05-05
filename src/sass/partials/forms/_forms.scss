@@ -1,7 +1,8 @@
 // global style forms
 #plan-book-form,
 #contact-form,
-#booking-form {
+#booking-form,
+#login-form {
   input,
   select,
   textarea,
@@ -60,9 +61,16 @@
 }
 
 // booking form
-#booking-form {
+#booking-form,
+#login-form {
   padding: 50px;
   background-color: $highlight;
+}
+
+// login form
+#login-form {
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 // plan and book form index page

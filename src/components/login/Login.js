@@ -1,7 +1,11 @@
-import React from 'react'
+import Container from "react-bootstrap/Container";
+import LoginForm from "../forms/LoginForm";
 
 export default function Login() {
+
   return (
-    <div>Login</div>
+    <Container className="my-5">
+      <LoginForm />
+    </Container>
   )
 }

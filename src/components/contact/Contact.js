@@ -29,7 +29,7 @@ export default function Contact() {
             <Heading Tag="h3" title="Contact info"  className="mb-3"/>
             <img src={logo} alt="logo" width="180px" />
             <ContactInfo />
-            <p>Find us on <a href="https://maps.google.com">google maps</a></p>
+            <p>Find us on <a href="https://maps.google.com" target="_blank">google maps</a></p>
           </Container>
           </Col>
         </Row>
