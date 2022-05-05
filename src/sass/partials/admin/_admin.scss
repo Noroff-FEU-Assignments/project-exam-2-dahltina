@@ -1,0 +1,10 @@
+.admin-messages-container,
+.admin-enquiry-container {
+  background-color: $highlight;
+  padding: 0.5rem 0;
+}
+
+.admin-message,
+.admin-enquiry {
+  background-color: $background-color;
+}

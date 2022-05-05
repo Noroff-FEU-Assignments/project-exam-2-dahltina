@@ -10,6 +10,10 @@ import Alert from "react-bootstrap/Alert";
 import { MINIMUM_MESSAGE_CHARACTERS, EMAIL_REGEX, MINIMUM_NAME_CHARACTERS } from "../../constants/registration";
 import Heading from "../typography/Heading";
 import ValidationError from "./ValidationError";
+import { BASE_API } from "../../constants/api";
+import axios from "axios";
+
+const url = BASE_API + "wp/v2/messages";
 
 const schema = yup.object().shape({
   name: yup
@@ -34,10 +38,23 @@ export default function BookingForm() {
   const [submitted, setSubmitted] = useState(false);
   const { register, handleSubmit, formState: { errors }} = useForm({ resolver: yupResolver(schema) });
 
-  function onSubmit(data) {
+  async function onSubmit(data) {
       console.log(data);
-      // POST or PUT request
       setSubmitted(true);
+      // data.status = "publish";
+
+      // try {
+      //   const response = await axios.post(url, data);
+      //   console.log("response:", response.data);
+      // }
+
+      // catch (error) {
+      //   console.log("error", error);
+      // }
+
+      // finally {
+      //   setSubmitted(false);
+      // }
   }
 
   console.log(errors);
@@ -62,10 +79,11 @@ export default function BookingForm() {
 
         <Form.Group className="mb-3">
           <Form.Select className="mb-3" {...register("subject")}>
-            <option value="1">Booking</option>
-            <option value="2">Experiences</option>
-            <option value="3">Cancellation</option>
-            <option value="3">Other</option>
+            <option value="">Subject</option>
+            <option value="Booking">Booking</option>
+            <option value="Experiences">Experiences</option>
+            <option value="Cancelletion">Cancellation</option>
+            <option value="Other">Other</option>
           </Form.Select>
           {errors.subject && <ValidationError>{errors.subject.message}</ValidationError>}
         </Form.Group>

@@ -29,3 +29,26 @@ export default function useLocalStorage(key, initialValue) {
 
 	return [storedValue, setValue];
 }
+
+// get username
+const userKey = "auth";
+
+export function getUsername() {
+	const user = getFromStorage(userKey);
+
+	if (user) {
+			return user.user_display_name;
+	}
+	return null;
+}
+
+export function getFromStorage(key) {
+	const value = localStorage.getItem(key);
+
+	if (!value) {
+			return [];
+	}
+	else {
+			return JSON.parse(value);
+	}
+}

@@ -89,6 +89,10 @@ img {
   color: $primary !important;
 }
 
+.btn-danger {
+  color: $danger !important;
+}
+
 @import "partials/typography/typography";
 @import "partials/layout/navbar";
 @import "partials/layout/footer";
@@ -99,4 +103,5 @@ img {
 @import "partials/contact/contact";
 @import "partials/accommodation/accommodation";
 @import "partials/accommodation/roomTypes";
+@import "partials/admin/admin";
 @import "~bootstrap/scss/bootstrap.scss";
