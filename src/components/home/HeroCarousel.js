@@ -2,10 +2,11 @@ import { useState, useEffect} from "react";
 import { BASE_API } from "../../constants/api";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
+import Carousel from "react-bootstrap/Carousel";
 
 const url = BASE_API + "wp/v2/image";
 
-export default function HeroImg() {
+export default function HeroCarousel() {
 
   const [image, setImage] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -52,11 +53,18 @@ export default function HeroImg() {
   }
 
   return (
-    <>
-      {image.map(function (item) {
-        return <>
-          <img src={item.acf.hero_img} className="hero-img"/>
-        </>;})}
-    </>
+    <div>
+      <Carousel>
+        {image.map(image => (
+          <Carousel.Item key={image.id}>
+            <img
+              className="d-block w-100 hero-img"
+              src={image.acf.hero_img}
+              alt={image.title.rendered}
+            />
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </div>
    );
 }

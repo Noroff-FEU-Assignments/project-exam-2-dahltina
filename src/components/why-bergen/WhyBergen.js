@@ -1,7 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import HeroImg from "../home/HeroImg";
+import HeroCarousel from "../home/HeroCarousel";
 import Footer from "../layout/Footer";
 import Heading from "../typography/Heading";
 import Paragraph from "../typography/Paragraph";
@@ -15,7 +15,7 @@ export default function WhyBergen() {
     <>
       <Container className="my-5">
         <Heading Tag="h1" title="DISCOVER BERGEN" className="text-center"/>
-        <HeroImg />
+        <HeroCarousel />
         <Container className="my-5 intro-container">
           <Paragraph
             Tag="em"

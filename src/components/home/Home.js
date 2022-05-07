@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import Heading from "../typography/Heading";
 import AccommodationList from "../accomodation/AccommodationList";
-import HeroImg from "./HeroImg";
+import HeroCarousel from "./HeroCarousel";
 import Paragraph from "../typography/Paragraph";
 import Button from "react-bootstrap/Button";
 import BookStayForm from "../forms/BookStayForm";
@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <Container className="my-5">
         <Heading Tag="h1" title="ACCOMMODATION AND EXPERIENCES IN BERGEN" className="text-center"/>
-        <HeroImg className="my-5 border-top border-bottom"/>
+        <HeroCarousel className="my-5 border-top border-bottom"/>
         <Container className="my-5 intro-container">
           <Heading Tag="h2" className="intro-h2" title="Welcome to Bergen!" />
           <Paragraph
