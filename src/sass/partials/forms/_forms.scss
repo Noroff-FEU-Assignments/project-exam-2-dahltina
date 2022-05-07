@@ -2,7 +2,8 @@
 #plan-book-form,
 #contact-form,
 #booking-form,
-#login-form {
+#login-form,
+#add-accommodation-form {
   input,
   select,
   textarea,
@@ -10,6 +11,7 @@
     font-family: $font-family-sans-serif;
     background-color: $background-color;
     border: 0;
+    -webkit-appearance: none;
   }
 
   input[type="text"] {
@@ -62,7 +64,8 @@
 
 // booking form
 #booking-form,
-#login-form {
+#login-form,
+#add-accommodation-form {
   padding: 50px;
   background-color: $highlight;
 }

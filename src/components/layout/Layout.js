@@ -12,6 +12,7 @@ import WhyBergen from "../why-bergen/WhyBergen";
 import Form from "react-bootstrap/Form";
 import { AuthProvider } from "../../context/AuthContext";
 import AdminPanel from "../admin/AdminPanel";
+import AddAccommodation from "../admin/AddAccommodation";
 
 function Layout() {
 
@@ -76,6 +77,7 @@ function Layout() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/add-accommodation" element={<AddAccommodation />} />
         </Routes>
       </Router>
     </AuthProvider>
