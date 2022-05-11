@@ -1,0 +1,25 @@
+.search-container {
+  position: relative;
+
+  #search-form {
+    .form-control {
+        max-width: 200px;
+    }
+  }
+}
+
+.search-results {
+  position: absolute;
+  width: 100%;
+  max-width: 200px;
+  left: 0;
+
+  a {
+    text-decoration: none;
+    font-family: $font-family-sans-serif;
+
+    .list-group-item:hover {
+      background-color: $tertiary;
+    }
+  }
+}

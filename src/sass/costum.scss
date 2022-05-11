@@ -49,6 +49,10 @@ $input-font-family: $font-family-sans-serif;
 $input-font-size: 1rem;
 $form-select-indicator-color: $primary;
 
+// list group
+$list-group-color: $primary;
+$list-group-border-color: $tertiary;
+
 // navbar
 $navbar-padding-y: 1rem;
 $navbar-light-color: $primary;
@@ -95,6 +99,7 @@ img {
 
 @import "partials/typography/typography";
 @import "partials/layout/navbar";
+@import "partials/layout/searchBar";
 @import "partials/layout/footer";
 @import "partials/forms/forms";
 @import "partials/forms/messages";
