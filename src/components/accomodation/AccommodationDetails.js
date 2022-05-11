@@ -8,7 +8,6 @@ import { BASE_API } from "../../constants/api";
 import Heading from "../typography/Heading";
 import Paragraph from "../typography/Paragraph";
 import Footer from "../layout/Footer";
-import BookingForm from "../forms/BookingForm";
 import RoomTypes from "./RoomTypes";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
@@ -38,7 +37,6 @@ export default function AccomodationDetails() {
 
         if (response.ok) {
           const json = await response.json();
-          console.log(json);
           setAccommodation(json);
         }
       }
@@ -70,7 +68,7 @@ export default function AccomodationDetails() {
 
   return (
     <>
-      <Container className="mt-5">
+      <Container className="mt-5 accommodation-details">
         <Row>
           <Col className="d-flex flex-column col-8 mb-5">
             <Image src={accommodation.acf.img_1} />
@@ -83,8 +81,8 @@ export default function AccomodationDetails() {
 
         <Row>
           <Col className="d-flex flex-column col-12 col-lg-7">
-            <Heading Tag="h1" title={accommodation.title.rendered} />
-            <Heading Tag="h5" title={accommodation.acf.location} />
+            <Heading Tag="h1" title={accommodation.title.rendered} className="fs-2" />
+            <Paragraph Tag="em" content={accommodation.acf.location} className="fs-5" />
             <div className="my-5" dangerouslySetInnerHTML={{ __html: accommodation.content.rendered }} />
             <Heading Tag="h3" title="Facilities" />
             <Paragraph Tag="p" content={accommodation.acf.facilities} />

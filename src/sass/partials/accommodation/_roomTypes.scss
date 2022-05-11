@@ -1,4 +1,12 @@
 .room-types {
   background-color: $highlight;
   padding: 2rem;
+
+  h5 {
+    font-weight: bold;
+  }
+
+  .btn-primary {
+    background-color: $background-color !important;
+  }
 }
