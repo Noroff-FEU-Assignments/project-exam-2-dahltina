@@ -18,7 +18,6 @@ import DataContext from "../../context/DataContext";
 function Layout() {
 
   const [isLoggedIn, setisLoggedIn] = useState(localStorage.getItem("auth"));
-  // const navigate = useNavigate();
 
   function logout() {
     localStorage.removeItem("auth");
@@ -73,11 +72,11 @@ function Layout() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/why-bergen" element={<WhyBergen />} />
-            <Route path="/accommodation" element={<Accomodation />} />
+            <Route exact path="/accommodation" element={<Accomodation />} />
             <Route path="/accommodation/:id" element={<AccommodationDetails />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/admin" element={<AdminPanel />} />
+            <Route exact path="/admin" element={<AdminPanel />} />
             <Route path="/add-accommodation" element={<AddAccommodation />} />
           </Routes>
         </Router>

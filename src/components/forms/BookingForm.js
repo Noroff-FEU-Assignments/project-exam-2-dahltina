@@ -7,53 +7,96 @@ import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Alert from "react-bootstrap/Alert";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import ReactDatePicker from "react-datepicker";
 import { GUESTS, EMAIL_REGEX, MINIMUM_NAME_CHARACTERS } from "../../constants/registration";
 import Heading from "../typography/Heading";
 import ValidationError from "./ValidationError";
+import useAxios from "../../hooks/useAxios";
+import "react-datepicker/dist/react-datepicker.css";
+
+// const schema = yup.object().shape({
+//   startDate: yup
+//     .string(),
+//   endDate: yup
+//     .date()
+//     .nullable(),
+//   name: yup
+//     .string()
+//     .required("Please enter your name")
+//     .min(MINIMUM_NAME_CHARACTERS, `Your name must at be at least ${MINIMUM_NAME_CHARACTERS} characters`),
+//   email: yup
+//     .string()
+//     .required("Please enter your email address")
+//     .matches(EMAIL_REGEX, "Your email is not valid"),
+//   guests: yup
+//     .number()
+//     .required("Please select how many guests will be staying"),
+//   rooms: yup
+//     .number()
+//     .required("Please select how many rooms you would like to book"),
+//   message: yup
+//     .string()
+// });
 
 const schema = yup.object().shape({
-  startDate: yup
-    .date()
-    .nullable(),
-  endDate: yup
-    .date()
-    .nullable(),
-  name: yup
-    .string()
-    .required("Please enter your name")
-    .min(MINIMUM_NAME_CHARACTERS, `Your name must at be at least ${MINIMUM_NAME_CHARACTERS} characters`),
-  email: yup
-    .string()
-    .required("Please enter your email address")
-    .matches(EMAIL_REGEX, "Your email is not valid"),
-  guests: yup
-    .number()
-    .required("Please select how many guests will be staying"),
-  rooms: yup
-    .number()
-    .required("Plese select how many rooms you would like to book"),
-  message: yup
-    .string()
+  fields: {
+    startDate: yup
+      .string().required(),
+    endDate: yup
+      .date().nullable,
+    name: yup
+      .string()
+      .required("Please enter your name")
+      .min(MINIMUM_NAME_CHARACTERS, `Your name must at be at least ${MINIMUM_NAME_CHARACTERS} characters`),
+    email: yup
+      .string()
+      .required("Please enter your email address")
+      .matches(EMAIL_REGEX, "Your email is not valid"),
+    guests: yup
+      .number()
+      .required("Please select how many guests will be staying"),
+    rooms: yup
+      .number()
+      .required("Please select how many rooms you would like to book"),
+    message: yup
+      .string()
+  },
 });
+
+
 
 export default function BookingForm() {
 
   const [startDate, setStartDate] = useState(new Date());
-  // const dayAfter = new Date(startDate.getTime() + 86400000);
   const [dayAfter, setDayAfter] = useState(new Date(startDate.getTime() + 86400000));
   const [endDate, setEndDate] = useState(dayAfter);
   const [submitted, setSubmitted] = useState(false);
-  const { register, handleSubmit, control, formState: { errors }} = useForm({ resolver: yupResolver(schema) });
+  const [serverError, setServerError] = useState(null);
+  const { register, handleSubmit, control, formState: { errors }} = useForm({
+    resolver: yupResolver(schema)
+  });
 
-  function onSubmit(data) {
+  const http = useAxios();
+
+  async function onSubmit(data) {
+      setServerError(null);
+      data.status = "publish";
       console.log(data);
-      // POST or PUT request
-      setSubmitted(true);
-  }
 
-  console.log(errors);
+      try {
+        const response = await http.post("/wp/v2/enquiry", data);
+        console.log("response", response.data);
+      }
+
+      catch (error) {
+        console.log("error", error);
+        setServerError(error.toString());
+      }
+
+      finally {
+        setSubmitted(true);
+      }
+  }
 
   return (
     <>
@@ -65,21 +108,26 @@ export default function BookingForm() {
 
         <Form.Group className="mb-3">
           <Form.Label>From</Form.Label>
-          <DatePicker {...register("startDate")}
-            dateFormat="dd.MM.yyyy"
-            calendarStartDay={1}
-            selected={startDate}
-            startDate={startDate}
-            endDate={endDate}
-            minDate={startDate}
-            onChange={(date) => setStartDate(date) && setDayAfter(date)}
+          <Controller
+            control={control}
+            name="ReactDatepicker"
+            render={({ field }) => (
+              <ReactDatePicker {...register("fields.startDate")}
+                dateFormat="dd.MM.yyyy"
+                calendarStartDay={1}
+                className="input"
+                placeholderText="Select date"
+                onChange={(date) => field.onChange(date) && setStartDate(date)}
+                selected={field.value}
+              />
+            )}
           />
-          {errors.startDate && <ValidationError>{errors.startDate.message}</ValidationError>}
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label>To</Form.Label>
-          <DatePicker {...register("endDate")}
+          <ReactDatePicker {...register("fields.endDate")}
+            innerRef={register}
             dateFormat="dd.MM.yyyy"
             calendarStartDay={1}
             selected={endDate}
@@ -92,8 +140,8 @@ export default function BookingForm() {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Select className="mb-3" {...register("guests")}>
-            <option>Guests</option>
+          <Form.Select className="mb-3" {...register("fields.guests")}>
+            <option value="">Guests</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -107,7 +155,7 @@ export default function BookingForm() {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Select className="mb-3" {...register("rooms")}>
+          <Form.Select className="mb-3" {...register("fields.rooms")}>
             <option>Rooms</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -118,16 +166,16 @@ export default function BookingForm() {
         </Form.Group>
 
         <Form.Group className="mb-3" >
-          <Form.Control placeholder="Name" {...register("name")} />
+          <Form.Control placeholder="Name" {...register("fields.name")} />
           {errors.name && <ValidationError>{errors.name.message}</ValidationError>}
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Control placeholder="E-mail" {...register("email")} />
+          <Form.Control placeholder="E-mail" {...register("fields.email")} />
           {errors.email && <ValidationError>{errors.email.message}</ValidationError>}
         </Form.Group>
 
-        <InputGroup className="mb-3" {...register("message")}>
+        <InputGroup className="mb-3" {...register("fields.message")}>
           <FormControl as="textarea" aria-label="With textarea" placeholder="Message (optional)" />
         </InputGroup>
 
@@ -140,26 +188,6 @@ export default function BookingForm() {
 }
 
 
-
-// CSS Modules, react-datepicker-cssmodules.css
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-
-{/* <Form.Group className="mb-3">
-<Controller {...register("startDate")}
-  as={<DatePicker />}
-  control={control}
-  render={({ onChange, value }) => (
-    <DatePicker
-      dateFormat="dd.MM.yyyy"
-      calendarStartDay={1}
-      selected={startDate}
-      minDate={startDate}
-      onChange={(date) => setStartDate(date) && setDayAfter(date)}
-    />
-  )}
-/>
-{errors.startDate && <ValidationError>{errors.startDate.message}</ValidationError>}
-</Form.Group> */}
 
 
 
