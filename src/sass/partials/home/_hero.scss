@@ -17,10 +17,6 @@
     width: 100%;
     text-align: center;
   }
-
-  .btn {
-    display: block;
-  }
 }
 
 .intro-text {
@@ -32,6 +28,10 @@
   border-top: 2px solid $primary;
   border-bottom: 2px solid $primary;
   padding: 20px 0;
+}
+
+.carousel-indicators {
+  display: none !important;
 }
 
 @media (min-width: 960px) {
