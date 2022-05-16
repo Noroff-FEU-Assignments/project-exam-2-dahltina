@@ -1,4 +1,4 @@
-# User credentioals
+# User credentials
 username: admin
 password: pass1234
 
