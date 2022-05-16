@@ -1,10 +1,14 @@
-# Project Exam 2
+# User credentials
+username: admin <br>
+password: pass1234
+
+## Project Exam 2
 There are two options with this Project Exam.
 You need to only choose one and please follow the deliveries carefully.
 
 ## Goal
 To take the skills learned over the last two years and take on an extensive project where the finished product should reflect the candidate's general development capabilities, in addition to visual and technical skills.
-
+j
 ## Brief
 For this assignment you have the choice between getting a real world client that you will manage and build a website for, or a case study to make a hotel booking website.
 
