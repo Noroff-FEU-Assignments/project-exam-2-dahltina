@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import Heading from "../typography/Heading";
@@ -10,6 +11,11 @@ import ExperienceList from "../experiences/ExperienceList";
 import Footer from "../layout/Footer";
 
 export default function Home() {
+
+  useEffect(() => {
+    document.title = "Home | Holidaze";
+  }, []);
+
   return (
     <>
       <Container className="my-5">

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -11,6 +12,11 @@ import Img2 from "../../images/content-2.jpg";
 import Img3 from "../../images/content-3.jpg";
 
 export default function WhyBergen() {
+
+  useEffect(() => {
+    document.title = "Why Bergen | Holidaze";
+  }, []);
+
   return (
     <>
       <Container className="my-5">

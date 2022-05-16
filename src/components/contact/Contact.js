@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -9,6 +10,11 @@ import logo from "../../images/logo.png";
 import Footer from "../layout/Footer";
 
 export default function Contact() {
+
+  useEffect(() => {
+    document.title = "Contact | Holidaze";
+  }, []);
+
   return (
     <>
       <Container className="my-5 contact-wrapper">
