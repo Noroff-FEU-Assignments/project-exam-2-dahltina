@@ -10,10 +10,7 @@ import Alert from "react-bootstrap/Alert";
 import { MINIMUM_MESSAGE_CHARACTERS, EMAIL_REGEX, MINIMUM_NAME_CHARACTERS } from "../../constants/registration";
 import Heading from "../typography/Heading";
 import ValidationError from "./ValidationError";
-import { BASE_API } from "../../constants/api";
-import axios from "axios";
-
-const url = BASE_API + "wp/v2/messages";
+import useAxios from "../../hooks/useAxios";
 
 const schema = yup.object().shape({
   name: yup
@@ -37,24 +34,28 @@ export default function BookingForm() {
 
   const [submitted, setSubmitted] = useState(false);
   const { register, handleSubmit, formState: { errors }} = useForm({ resolver: yupResolver(schema) });
+  const http = useAxios();
 
   async function onSubmit(data) {
       console.log(data);
-      setSubmitted(true);
-      // data.status = "publish";
 
-      // try {
-      //   const response = await axios.post(url, data);
-      //   console.log("response:", response.data);
-      // }
+      const newData = {
+        status: "publish",
+        fields: data,
+      }
 
-      // catch (error) {
-      //   console.log("error", error);
-      // }
+      try {
+        const response = await http.post("wp/v2/message", newData);
+        console.log("response:", response.data);
+      }
 
-      // finally {
-      //   setSubmitted(false);
-      // }
+      catch (error) {
+        console.log("error", error);
+      }
+
+      finally {
+        setSubmitted(true);
+      }
   }
 
   console.log(errors);
@@ -100,15 +101,3 @@ export default function BookingForm() {
     </>
   )
 }
-
-
-
-{/* <Form.Group className="py-2">
-<Controller
-  name="subject"
-  control={control}
-  render={({ field }) => <Select options={SUBJECT} {...field} />}
-  {...register("subject")}
-/>
-{errors.subject && <ValidationError>{errors.subject.message}</ValidationError>}
-</Form.Group> */}
