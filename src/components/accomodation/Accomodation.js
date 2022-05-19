@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Footer from "../layout/Footer";
 import Heading from "../typography/Heading";
-import AccomodationList from "./AccommodationList";
+import AllAccommodations from "./AllAccommodations";
 
 export default function Accomodation() {
 
@@ -13,8 +13,8 @@ export default function Accomodation() {
   return (
     <>
       <Container className="my-5">
-        <Heading Tag="h1" title="Accommodation" />
-        <AccomodationList />
+        <Heading Tag="h1" title="Accommodation" className="text-center"/>
+        <AllAccommodations />
       </Container>
       <Footer />
     </>
