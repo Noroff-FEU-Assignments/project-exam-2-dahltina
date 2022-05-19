@@ -11,6 +11,7 @@ import Footer from "../layout/Footer";
 import RoomTypes from "./RoomTypes";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 const url = BASE_API + "wp/v2/accommodations/";
 
@@ -69,6 +70,10 @@ export default function AccomodationDetails() {
   return (
     <>
       <Container className="mt-5 accommodation-details">
+        <Breadcrumb>
+          <Breadcrumb.Item href="/accommodation">Accommodation</Breadcrumb.Item>
+          <Breadcrumb.Item active>{accommodation.title.rendered}</Breadcrumb.Item>
+        </Breadcrumb>
         <Row>
           <Col className="d-flex flex-column col-8 mb-5">
             <Image src={accommodation.acf.img_1} />
