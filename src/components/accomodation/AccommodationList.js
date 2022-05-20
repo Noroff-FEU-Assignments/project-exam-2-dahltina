@@ -55,14 +55,10 @@ export default function AccomodationList() {
   return (
     <div className="featured-container">
       {accommodation.map(function (accommodation) {
-        const { id, image, title, rating, excerpt, acf } = accommodation;
+        const { id, acf } = accommodation;
         return <AccommodationItem
           key={id}
           id={id}
-          title={title}
-          image={image}
-          rating={rating}
-          excerpt={excerpt}
           acf={acf}
         />;
       })}

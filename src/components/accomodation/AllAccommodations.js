@@ -22,12 +22,12 @@ export default function AllAccommodations() {
             <Container className="py-5 accommodation-item">
               <Row>
                 <Col className="col-12 col-lg-5 mb-5 mb-lg-0">
-                  <Image src={item.acf.img_1} alt={item.title.rendered} />
+                  <Image src={item.acf.img_1} alt={item.acf.title} />
                 </Col>
                 <Col className="col-12 col-lg-4">
-                  <Heading Tag="h3" title={item.title.rendered} className="fs-2"/>
+                  <Heading Tag="h3" title={item.acf.title} className="fs-2"/>
                   <Paragraph Tag="em" content={item.acf.location} className="fs-4" />
-                  <div className="my-4 fs-5" dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
+                  <div className="my-4 fs-5" dangerouslySetInnerHTML={{ __html: item.acf.excerpt }} />
                   <Heading Tag="h4" title="HIGHLIGHTS" />
                   <Paragraph Tag="em" content={item.acf.facilities} className="fs-5"/>
                 </Col>

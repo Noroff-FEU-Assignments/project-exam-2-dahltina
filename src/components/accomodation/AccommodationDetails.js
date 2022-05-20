@@ -72,7 +72,7 @@ export default function AccomodationDetails() {
       <Container className="mt-5 accommodation-details">
         <Breadcrumb>
           <Breadcrumb.Item href="/accommodation">Accommodation</Breadcrumb.Item>
-          <Breadcrumb.Item active>{accommodation.title.rendered}</Breadcrumb.Item>
+          <Breadcrumb.Item active>{accommodation.acf.title}</Breadcrumb.Item>
         </Breadcrumb>
         <Row>
           <Col className="d-flex flex-column col-8 mb-5">
@@ -86,9 +86,9 @@ export default function AccomodationDetails() {
 
         <Row>
           <Col className="d-flex flex-column col-12 col-lg-7">
-            <Heading Tag="h1" title={accommodation.title.rendered} className="fs-2" />
+            <Heading Tag="h1" title={accommodation.acf.title} className="fs-2" />
             <Paragraph Tag="em" content={accommodation.acf.location} className="fs-5" />
-            <div className="my-5" dangerouslySetInnerHTML={{ __html: accommodation.content.rendered }} />
+            <div className="my-5" dangerouslySetInnerHTML={{ __html: accommodation.acf.description }} />
             <Heading Tag="h3" title="Facilities" />
             <Paragraph Tag="p" content={accommodation.acf.facilities} />
           </Col>
