@@ -32,12 +32,16 @@ const schema = yup.object().shape({
 
 export default function BookingForm() {
 
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [serverError, setServerError] = useState(null);
   const { register, handleSubmit, formState: { errors }} = useForm({ resolver: yupResolver(schema) });
   const http = useAxios();
 
   async function onSubmit(data) {
       console.log(data);
+      setSubmitting(true);
+      setServerError(null);
 
       const newData = {
         status: "publish",
@@ -47,6 +51,10 @@ export default function BookingForm() {
       try {
         const response = await http.post("wp/v2/message", newData);
         console.log("response:", response.data);
+
+        if (response.data) {
+          setSubmitted(true);
+        }
       }
 
       catch (error) {
@@ -54,7 +62,7 @@ export default function BookingForm() {
       }
 
       finally {
-        setSubmitted(true);
+        setSubmitting(false);
       }
   }
 
@@ -67,6 +75,7 @@ export default function BookingForm() {
         {submitted && <Alert variant="success">
           <h4>Thank you!</h4> Your message has been sent <br /> We will get back to you shortly.
         </Alert>}
+        {serverError && <Alert className="alert-danger text-center">{serverError}</Alert>}
 
         <Form.Group className="mb-3" >
           <Form.Control placeholder="Name" {...register("name")} />
@@ -94,8 +103,8 @@ export default function BookingForm() {
         </InputGroup>
         {errors.message && <ValidationError>{errors.message.message}</ValidationError>}
 
-        <Button variant="primary" type="submit" className="mt-3">
-          Submit
+        <Button variant="primary" type="submit" >
+          {submitting ? "Submitting..." : "Submit"}
         </Button>
       </Form>
     </>
