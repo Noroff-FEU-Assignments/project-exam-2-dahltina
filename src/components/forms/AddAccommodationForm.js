@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -8,6 +9,7 @@ import Alert from "react-bootstrap/Alert";
 import Heading from "../typography/Heading";
 import ValidationError from "./ValidationError";
 import useAxios from "../../hooks/useAxios";
+import MediaDropdown from "../admin/media/MediaDropdown";
 
 const schema = yup.object().shape({
   title: yup.string().required("Please enter the title"),
@@ -23,6 +25,7 @@ export default function BookingForm() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState(null);
+  const [id, setId] = useState(null);
   const { register, handleSubmit, formState: { errors }} = useForm({ resolver: yupResolver(schema) });
   const http = useAxios();
 
@@ -40,8 +43,9 @@ export default function BookingForm() {
         const response = await http.post("wp/v2/accommodations", newData);
         console.log("response:", response.data);
 
-        if (response.ok) {
+        if (response.data) {
           setSubmitted(true);
+          setId(response.data.id);
         }
       }
 
@@ -60,8 +64,11 @@ export default function BookingForm() {
   return (
     <>
       <Form id="add-accommodation-form" onSubmit={handleSubmit(onSubmit)}>
-        <Heading Tag="h3" title="Add accommodation info" className="mb-3 text-center"/>
-        {submitted && <Alert variant="success"><h4>Success</h4> New accommodation has been added.</Alert>}
+        <Heading Tag="h3" title="Add accommodation" className="mb-3 text-center"/>
+        {submitted && <Alert variant="success">
+          <h4>Success</h4> New accommodation has been added. <br />
+          <Link to={`../accommodation/${id}`}>See it here</Link>
+        </Alert>}
         {serverError && <Alert className="alert-danger text-center">{serverError}</Alert>}
 
         <fieldset disabled={submitting}>
@@ -94,6 +101,8 @@ export default function BookingForm() {
             <Form.Control as="textarea" rows={3} placeholder="Description" {...register("description")}/>
             {errors.description && <ValidationError>{errors.description.message}</ValidationError>}
           </Form.Group>
+
+          <MediaDropdown register={register} />
 
           <Button variant="primary" type="submit" >
             {submitting ? "Adding..." : "Add accommodation"}
