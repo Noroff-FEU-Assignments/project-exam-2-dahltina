@@ -13,7 +13,7 @@ export default function Accomodation() {
   return (
     <>
       <Container className="my-5">
-        <Heading Tag="h1" title="Accommodation" className="text-center"/>
+        <Heading Tag="h1" title="OUR ACCOMMODATIONS" className="text-center"/>
         <AllAccommodations />
       </Container>
       <Footer />

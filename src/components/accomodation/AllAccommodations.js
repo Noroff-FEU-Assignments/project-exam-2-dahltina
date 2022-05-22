@@ -24,11 +24,11 @@ export default function AllAccommodations() {
                   <Image src={item.acf.img_1} alt={item.acf.title} />
                 </Col>
                 <Col className="col-12 col-lg-4">
-                  <Heading Tag="h3" title={item.acf.title} className="fs-2"/>
+                  <Heading Tag="h3" title={item.acf.title} className="fs-3"/>
                   <Paragraph Tag="em" content={item.acf.location} className="fs-4" />
                   <div className="my-4 fs-5" dangerouslySetInnerHTML={{ __html: item.acf.excerpt }} />
                   <Heading Tag="h4" title="HIGHLIGHTS" />
-                  <Paragraph Tag="em" content={item.acf.facilities} className="fs-5"/>
+                  <Paragraph Tag="em" content={item.acf.facilities} className="fs-6"/>
                 </Col>
                 <Col className="col-12 col-lg-3 align-self-end">
                   <Paragraph Tag="p" content={`From $${item.acf.price} / night`} />
