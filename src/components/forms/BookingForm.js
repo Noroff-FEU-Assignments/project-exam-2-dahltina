@@ -7,18 +7,12 @@ import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Alert from "react-bootstrap/Alert";
-import { EMAIL_REGEX, MINIMUM_NAME_CHARACTERS } from "../../constants/registration";
+import { ENQUIRY_DEFAULT_VALUES, EMAIL_REGEX, MINIMUM_NAME_CHARACTERS } from "../../constants/registration";
 import Heading from "../typography/Heading";
 import ValidationError from "./ValidationError";
 import useAxios from "../../hooks/useAxios";
 
 const schema = yup.object().shape({
-  startDate: yup
-    .date()
-    .required("Please enter desired check in date"),
-  endDate: yup
-    .date()
-    .required("Please enter desired check out date"),
   name: yup
     .string()
     .required("Please enter your name")
@@ -43,7 +37,7 @@ export default function BookingForm() {
   const [endDate, setEndDate] = useState(null);
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState(null);
-  const { register, handleSubmit, formState: { errors }} = useForm({
+  const { register, reset, handleSubmit, formState: { errors }} = useForm({
     resolver: yupResolver(schema)
   });
 
@@ -55,15 +49,7 @@ export default function BookingForm() {
 
       const newData = {
         status: "publish",
-        fields: {
-          startDate: data.startDate,
-          endDate: data.endDate,
-          guests: data.guests,
-          rooms: data.rooms,
-          name: data.name,
-          email: data.email,
-          message: data.message,
-        }
+        fields: data
       }
 
       try {
@@ -78,6 +64,10 @@ export default function BookingForm() {
       catch (error) {
         console.log("error", error);
         setServerError(error.toString());
+      }
+
+      finally {
+        reset(ENQUIRY_DEFAULT_VALUES);
       }
   }
 
@@ -95,7 +85,7 @@ export default function BookingForm() {
           <Form.Control {...register("startDate", { value: startDate })}
             type="date"
             name="startDate"
-            onChange={date => setStartDate(date) && console.log(startDate)}
+            onChange={date => setStartDate(date)}
           />
           {errors.startDate && <ValidationError>{errors.startDate.message}</ValidationError>}
         </Form.Group>
@@ -105,7 +95,7 @@ export default function BookingForm() {
           <Form.Control {...register("endDate", { value: endDate })}
             type="date"
             name="endDate"
-            onChange={(event) => setEndDate(event.target.value) && console.log(endDate)}
+            onChange={date => setEndDate(date)}
           />
           {errors.endDate && <ValidationError>{errors.endDate.message}</ValidationError>}
         </Form.Group>

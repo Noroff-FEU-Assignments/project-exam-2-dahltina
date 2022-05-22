@@ -10,6 +10,7 @@ import Heading from "../typography/Heading";
 import ValidationError from "./ValidationError";
 import useAxios from "../../hooks/useAxios";
 import MediaDropdown from "../admin/media/MediaDropdown";
+import { ACCOMMODATION_DEFAULT_VALUES } from "../../constants/registration";
 
 const schema = yup.object().shape({
   title: yup.string().required("Please enter the title"),
@@ -26,7 +27,7 @@ export default function BookingForm() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState(null);
   const [id, setId] = useState(null);
-  const { register, handleSubmit, formState: { errors }} = useForm({ resolver: yupResolver(schema) });
+  const { register, reset, handleSubmit, formState: { errors }} = useForm({ resolver: yupResolver(schema) });
   const http = useAxios();
 
   async function onSubmit(data) {
@@ -56,6 +57,7 @@ export default function BookingForm() {
 
       finally {
         setSubmitting(false);
+        reset(ACCOMMODATION_DEFAULT_VALUES);
       }
   }
 

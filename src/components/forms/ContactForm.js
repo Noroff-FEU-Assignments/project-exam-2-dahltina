@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Alert from "react-bootstrap/Alert";
-import { MINIMUM_MESSAGE_CHARACTERS, EMAIL_REGEX, MINIMUM_NAME_CHARACTERS } from "../../constants/registration";
+import { CONTACT_DEFAULT_VALUES, MINIMUM_MESSAGE_CHARACTERS, EMAIL_REGEX, MINIMUM_NAME_CHARACTERS } from "../../constants/registration";
 import Heading from "../typography/Heading";
 import ValidationError from "./ValidationError";
 import useAxios from "../../hooks/useAxios";
@@ -35,11 +35,10 @@ export default function BookingForm() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState(null);
-  const { register, handleSubmit, formState: { errors }} = useForm({ resolver: yupResolver(schema) });
+  const { register, reset, handleSubmit, formState: { errors }} = useForm({ resolver: yupResolver(schema) });
   const http = useAxios();
 
   async function onSubmit(data) {
-      console.log(data);
       setSubmitting(true);
       setServerError(null);
 
@@ -50,7 +49,6 @@ export default function BookingForm() {
 
       try {
         const response = await http.post("wp/v2/message", newData);
-        console.log("response:", response.data);
 
         if (response.data) {
           setSubmitted(true);
@@ -58,11 +56,12 @@ export default function BookingForm() {
       }
 
       catch (error) {
-        console.log("error", error);
+        setServerError(error.toString());
       }
 
       finally {
         setSubmitting(false);
+        reset(CONTACT_DEFAULT_VALUES);
       }
   }
 
