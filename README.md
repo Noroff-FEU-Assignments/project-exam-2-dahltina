@@ -1,6 +1,8 @@
 # User credentials
 username: admin <br>
-password: pass1234
+password: pass1234 <br>
+
+Need to be logged in in order to send form data from contact form and enquiry form
 
 ## Project Exam 2
 There are two options with this Project Exam.

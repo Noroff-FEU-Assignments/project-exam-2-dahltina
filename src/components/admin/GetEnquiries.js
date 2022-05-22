@@ -22,7 +22,6 @@ export default function GetEnquiries() {
 
         if(response.ok) {
           const json = await response.json();
-          console.log(json);
           setEnquiry(json);
         }
         else {
@@ -63,7 +62,17 @@ export default function GetEnquiries() {
           day: "numeric",
           month: "long",
           year: "numeric",
+      })
+      const convertedStartDate = new Date(acf.startDate).toLocaleString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
       });
+      const convertedEndDate = new Date(acf.endDate).toLocaleString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
         return <div className="admin-enquiry mx-4 my-4" key={id} acf={acf} date={date}>
           <Row className="p-4">
             <Col className="col-3">
@@ -80,8 +89,8 @@ export default function GetEnquiries() {
               <Paragraph Tag="p" content={`${newDate}`} />
               <Paragraph Tag="p" content={`${acf.name}`} />
               <Paragraph Tag="p" content={`${acf.email}`} />
-              <Paragraph Tag="p" content={`${acf.from}`} />
-              <Paragraph Tag="p" content={`${acf.to}`} />
+              <Paragraph Tag="p" content={`${convertedStartDate}`} />
+              <Paragraph Tag="p" content={`${convertedEndDate}`} />
               <Paragraph Tag="p" content={`${acf.guests}`} />
               <Paragraph Tag="p" content={`${acf.rooms}`} />
               <Paragraph Tag="p" content={`${acf.message}`} />
