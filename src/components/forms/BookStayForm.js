@@ -1,19 +1,12 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { Container } from "react-bootstrap";
 import Heading from "../typography/Heading";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 export default function BookStayForm() {
-
-  const [startDate, setStartDate] = useState(new Date());
-  const [dayAfter, setDayAfter] = useState(new Date(startDate.getTime() + 86400000));
-  const [endDate, setEndDate] = useState(dayAfter);
 
   return (
     <div className="my-5 plan-and-book-container">
@@ -23,31 +16,23 @@ export default function BookStayForm() {
         <Form id="plan-book-form">
           <Row>
             <Col className="col-6 col-lg-2">
-              <Form.Group className="mb-4 mb-lg-5">
-                <Form.Label>From</Form.Label>
-                <DatePicker
-                  dateFormat="dd.MM.yyyy"
-                  calendarStartDay={1}
-                  selected={startDate}
-                  startDate={startDate}
-                  endDate={endDate}
-                  minDate={startDate}
+              <Form.Group className="mb-3">
+                <Form.Label>Check in</Form.Label>
+                <Form.Control
+                  type="date"
+                  name="startDate"
                 />
               </Form.Group>
             </Col>
 
             <Col className="col-6 col-lg-2">
-              <Form.Group className="mb-4 mb-lg-5">
-                <Form.Label>To</Form.Label>
-                <DatePicker
-                  dateFormat="dd.MM.yyyy"
-                  calendarStartDay={1}
-                  selected={endDate}
-                  startDate={dayAfter}
-                  endDate={endDate}
-                  minDate={dayAfter}
+              <Form.Group className="mb-3">
+                <Form.Label>Check out</Form.Label>
+                <Form.Control
+                  type="date"
+                  name="endDate"
                 />
-              </Form.Group>
+            </Form.Group>
             </Col>
 
             <Col className="col-6 col-lg-2">

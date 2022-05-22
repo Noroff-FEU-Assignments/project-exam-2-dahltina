@@ -12,7 +12,6 @@ import Image from "react-bootstrap/Image";
 export default function AllAccommodations() {
 
   const data = useContext(DataContext);
-  console.log(data)
 
   return (
     <div className="all-accommodations-container">

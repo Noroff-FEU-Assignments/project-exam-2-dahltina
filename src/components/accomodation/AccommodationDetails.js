@@ -101,6 +101,3 @@ export default function AccomodationDetails() {
     </>
   )
 }
-
-
-// <Image src={accommodation.acf.rating} width="150px"/>
