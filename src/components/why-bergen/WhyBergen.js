@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -45,9 +46,9 @@ export default function WhyBergen() {
                 which means you have plenty of hikes to choose from"
             />
             <p className="fs-4">Find&nbsp;
-              <a href="https://ut.no/utforsker/stedsnavn/551660/bergen/turforslag" target="_blank">
+              <Link to="https://ut.no/utforsker/stedsnavn/551660/bergen/turforslag" target="_blank">
                 hiking routes
-              </a> in the area
+              </Link> in the area
             </p>
           </Col>
           <Col className="col-12 col-lg-6">

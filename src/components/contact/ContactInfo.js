@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ContactInfo() {
   return (
     <>
@@ -6,8 +8,8 @@ export default function ContactInfo() {
         1222 Bergen <br />
         Norway
       </p>
-      <p>Tel: <a href="#">+47 00 00 00 00</a></p>
-      <p>Mail: <a href="#">hello@holidaze.com</a></p>
+      <p>Tel: <Link to="#">+47 00 00 00 00</Link></p>
+      <p>Mail: <Link to="#">hello@holidaze.com</Link></p>
     </>
   )
 }

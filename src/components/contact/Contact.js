@@ -8,6 +8,7 @@ import Paragraph from "../typography/Paragraph";
 import ContactInfo from "./ContactInfo";
 import logo from "../../images/logo.png";
 import Footer from "../layout/Footer";
+import { Link } from "react-router-dom";
 
 export default function Contact() {
 
@@ -35,7 +36,7 @@ export default function Contact() {
             <Heading Tag="h3" title="Contact info"  className="mb-3"/>
             <img src={logo} alt="logo" width="180px" />
             <ContactInfo />
-            <p>Find us on <a href="https://maps.google.com" target="_blank">google maps</a></p>
+            <p>Find us on <Link to="https://maps.google.com" target="_blank">google maps</Link></p>
           </Container>
           </Col>
         </Row>

@@ -16,13 +16,13 @@ export default function Footer() {
           </Col>
           <Col className="d-flex flex-column col-6 col-md-2 mt-0">
             <h3>Help</h3>
-            <p><a href="#">About</a></p>
+            <p><Link to="#">About</Link></p>
             <Link to="/contact">
               <p>Contact us</p>
             </Link>
-            <p><a href="#">Covid 19</a></p>
-            <p><a href="#">Privacy Policy</a></p>
-            <p><a href="#">Terms and conditions</a></p>
+            <p><Link to="#">Covid 19</Link></p>
+            <p><Link to="#">Privacy Policy</Link></p>
+            <p><Link to="#">Terms and conditions</Link></p>
           </Col>
           <Col className="col-sm-12 col-md-7 mt-4 mt-md-0">
             <h3>Newsletter</h3>
