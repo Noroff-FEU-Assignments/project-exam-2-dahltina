@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ContactInfo from "../contact/ContactInfo";
+import Heading from "../typography/Heading";
+import Paragraph from "../typography/Paragraph";
+import Image from "react-bootstrap/Image";
 
 export default function Footer() {
   return (
@@ -11,24 +14,22 @@ export default function Footer() {
       <Container className="mt-5 py-5">
         <Row>
           <Col className="d-flex flex-column col-6 col-md-2">
-            <img src={logo} alt="logo" width="180px"/>
+            <Image src={logo} alt="logo" width="180px"/>
             <ContactInfo />
           </Col>
           <Col className="d-flex flex-column col-6 col-md-2 mt-0">
-            <h3>Help</h3>
-            <p><Link to="#">About</Link></p>
-            <Link to="/contact">
-              <p>Contact us</p>
-            </Link>
-            <p><Link to="#">Covid 19</Link></p>
-            <p><Link to="#">Privacy Policy</Link></p>
-            <p><Link to="#">Terms and conditions</Link></p>
+            <Heading Tag="h3" title="Help" />
+            <Link to="#">About</Link>
+            <Link to="/contact">Contact us</Link>
+            <Link to="#">Covid 19</Link>
+            <Link to="#">Privacy Policy</Link>
+            <Link to="#">Terms and conditions</Link>
           </Col>
           <Col className="col-sm-12 col-md-7 mt-4 mt-md-0">
-            <h3>Newsletter</h3>
-            <p>Sign up for our newletter for news, offers and more</p>
+            <Heading Tag="h3" title="Newsletter" />
+            <Paragraph Tag="p" content="Sign up for our newletter for news, offers and more" />
             <form className="d-flex flex-wrap">
-              <label for="email" className="form-label">Email address
+              <label htmlFor="email" className="form-label">Email address
                 <input type="email" className="form-control" id="email" />
               </label>
               <button type="submit" className="btn btn-primary">Sign me up!</button>
