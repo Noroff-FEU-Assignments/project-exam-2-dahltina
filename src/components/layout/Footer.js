@@ -27,16 +27,16 @@ export default function Footer() {
           <Col className="col-sm-12 col-md-7 mt-4 mt-md-0">
             <h3>Newsletter</h3>
             <p>Sign up for our newletter for news, offers and more</p>
-            <form class="d-flex flex-wrap">
-              <label for="email" class="form-label">Email address
-                <input type="email" class="form-control" id="email" />
+            <form className="d-flex flex-wrap">
+              <label for="email" className="form-label">Email address
+                <input type="email" className="form-control" id="email" />
               </label>
-              <button type="submit" class="btn btn-primary">Sign me up!</button>
+              <button type="submit" className="btn btn-primary">Sign me up!</button>
             </form>
           </Col>
           <Col className="col-12 col-md-1 mt-4 mt-md-0">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-instagram"></i>
+            <i className="fab fa-facebook-f"></i>
+            <i className="fab fa-instagram"></i>
           </Col>
         </Row>
       </Container>
