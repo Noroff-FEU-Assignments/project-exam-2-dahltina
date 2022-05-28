@@ -45,7 +45,6 @@ export default function BookingForm() {
 
   async function onSubmit(data) {
       setServerError(null);
-      console.log(data);
 
       const newData = {
         status: "publish",
@@ -54,7 +53,6 @@ export default function BookingForm() {
 
       try {
         const response = await http.post("/wp/v2/enquiry", newData);
-        console.log("response", response.data);
 
         if (response.data) {
           setSubmitted(true);
@@ -62,7 +60,6 @@ export default function BookingForm() {
       }
 
       catch (error) {
-        console.log("error", error);
         setServerError(error.toString());
       }
 

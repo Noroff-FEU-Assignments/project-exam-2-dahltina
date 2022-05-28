@@ -65,8 +65,6 @@ export default function BookingForm() {
       }
   }
 
-  console.log(errors);
-
   return (
     <>
       <Form id="contact-form" onSubmit={handleSubmit(onSubmit)}>

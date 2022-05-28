@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import ValidationError from "./ValidationError";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
@@ -41,13 +40,11 @@ export default function LoginForm() {
 
     try {
       const response = await axios.post(url, data);
-      console.log("response:", response.data);
       setAuth(response.data);
 			reDirect();
     }
 
     catch (error) {
-      console.log(error);
       setLoginError(error.toString());
     }
 

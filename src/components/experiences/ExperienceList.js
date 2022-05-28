@@ -19,7 +19,6 @@ export default function ExperienceList() {
 
         if(response.ok) {
           const json = await response.json();
-          console.log(json);
           setExperience(json);
         }
         else {

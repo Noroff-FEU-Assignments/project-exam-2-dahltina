@@ -19,7 +19,6 @@ export default function AccomodationList() {
 
         if(response.ok) {
           const json = await response.json();
-          console.log(json);
           setAccommodation(json);
         }
         else {

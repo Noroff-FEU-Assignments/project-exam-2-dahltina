@@ -4,7 +4,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Footer from "../layout/Footer";
 import Heading from "../typography/Heading";
-import Paragraph from "../typography/Paragraph";
 import { getUsername } from "../../hooks/useLocalStorage";
 import GetMessages from "./GetMessages";
 import GetEnquiries from "./GetEnquiries";
@@ -22,7 +21,6 @@ export default function AdminPanel() {
     <>
       <Container className="my-5">
         <Heading Tag="h1" title={`Hi, ${username}`} className="text-center"></Heading>
-        <Paragraph Tag="p" content="You have x new messages and x new enquiries" className="text-center"/>
         <Row className="mt-5">
           <Col className="col-12 col-lg-5">
             <Heading Tag="h5" title="Messages" />

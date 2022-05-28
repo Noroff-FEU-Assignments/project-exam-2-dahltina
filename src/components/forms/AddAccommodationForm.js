@@ -31,7 +31,6 @@ export default function BookingForm() {
   const http = useAxios();
 
   async function onSubmit(data) {
-      console.log(data);
       setSubmitting(true);
       setServerError(null);
 
@@ -42,7 +41,6 @@ export default function BookingForm() {
 
       try {
         const response = await http.post("wp/v2/accommodations", newData);
-        console.log("response:", response.data);
 
         if (response.data) {
           setSubmitted(true);
@@ -51,7 +49,6 @@ export default function BookingForm() {
       }
 
       catch (error) {
-        console.log("error", error);
         setServerError(error.toString());
       }
 
@@ -60,8 +57,6 @@ export default function BookingForm() {
         reset(ACCOMMODATION_DEFAULT_VALUES);
       }
   }
-
-  console.log(errors);
 
   return (
     <>

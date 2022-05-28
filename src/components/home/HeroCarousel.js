@@ -19,7 +19,6 @@ export default function HeroCarousel() {
 
         if(response.ok) {
           const json = await response.json();
-          console.log(json);
           setImage(json);
         }
         else {

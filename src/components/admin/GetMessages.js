@@ -22,7 +22,6 @@ export default function GetMessages() {
 
         if(response.ok) {
           const json = await response.json();
-          console.log(json);
           setMessage(json);
         }
         else {
