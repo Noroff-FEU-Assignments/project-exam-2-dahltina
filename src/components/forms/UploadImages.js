@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-// import ValidationError from "./ValidationError";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
@@ -16,7 +15,7 @@ export default function UploadImages() {
   const [image, setImage] = useState([]);
   const http = useAxios();
 
-  const { handleSubmit, errors } = useForm();
+  const { handleSubmit } = useForm();
 
   const formData = new FormData();
 
@@ -27,16 +26,13 @@ export default function UploadImages() {
 
     try {
       const response = await http.post("wp/v2/media", formData);
-      console.log("response", response.data);
 
       if (response.data) {
         setSubmitted(true);
-        console.log(submitted);
       }
     }
 
     catch (error) {
-      console.log(error);
       setServerError(error.toString());
     }
 

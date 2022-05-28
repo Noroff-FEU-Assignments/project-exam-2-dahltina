@@ -21,7 +21,6 @@ export default function Searchbar() {
       return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
     })
     setFilteredResults(filteredData);
-    console.log(filteredData);
   }
 
   return (
@@ -41,7 +40,7 @@ export default function Searchbar() {
       <div className="search-results">
         {filteredResults.map((item) => {
           return (
-            <ListGroup>
+            <ListGroup key={item.id}>
               <Link to={`accommodation/${item.id}`} >
                 <ListGroup.Item onClick={handleOnSelect}>
                   {item.title.rendered}

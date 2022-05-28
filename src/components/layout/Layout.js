@@ -2,7 +2,7 @@ import { useState } from "react";
 import logo from "../../images/logo.png";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import { BrowserRouter as Router, Routes, Route, NavLink, Link, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, NavLink, Link } from "react-router-dom";
 import Home from "../home/Home";
 import Accomodation from "../accomodation/Accomodation";
 import AccommodationDetails from "../accomodation/AccommodationDetails";
@@ -23,8 +23,6 @@ function Layout() {
     localStorage.removeItem("auth");
     setisLoggedIn(null);
   }
-
-  console.log(isLoggedIn);
 
   return (
     <AuthProvider>
