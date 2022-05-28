@@ -91,13 +91,26 @@ img {
   max-width: 100%;
 }
 
+// buttons
 .btn-primary {
   background-color: transparent !important;
   color: $primary !important;
 }
 
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: $primary !important;
+  color: $background-color !important;
+}
+
 .btn-danger {
   color: $danger !important;
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+  background-color: $danger !important;
+  color: $background-color !important;
 }
 
 @import "partials/typography/typography";
