@@ -25,7 +25,7 @@ export default function AccomodationDetails() {
   const { id } = useParams();
 
   if (!id) {
-    navigate.push("/");
+    navigate("/");
   }
 
   const api = url + id;
@@ -39,6 +39,7 @@ export default function AccomodationDetails() {
         if (response.ok) {
           const json = await response.json();
           setAccommodation(json);
+          document.title = `${json.acf.title} |  Holidaze`;
         }
       }
 
