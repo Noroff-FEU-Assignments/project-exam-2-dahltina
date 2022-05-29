@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import useAxios from "../../../hooks/useAxios";
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 
 export default function MediaDropdown({ register }) {
 	const [media, setMedia] = useState([]);
+  const [error, setError] = useState(null);
 
 	const http = useAxios();
 
@@ -16,12 +18,18 @@ export default function MediaDropdown({ register }) {
 			}
 
       catch (error) {
-				console.log(error);
+				setError("An error occured");
 			}
 		}
 
 		getMedia();
 	}, []);
+
+  if (error) {
+    return  <Alert className="alert-danger text-center">
+              An error occured while trying to fetch images
+            </Alert>
+  }
 
 	return (
     <Form.Group className="mb-3">

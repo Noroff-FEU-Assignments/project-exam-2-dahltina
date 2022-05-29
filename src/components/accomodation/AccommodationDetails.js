@@ -39,7 +39,7 @@ export default function AccomodationDetails() {
         if (response.ok) {
           const json = await response.json();
           setAccommodation(json);
-          document.title = `${json.acf.title} |  Holidaze`;
+          document.title = `${json.acf.title} | Holidaze`;
         }
       }
 
@@ -55,7 +55,7 @@ export default function AccomodationDetails() {
   }, [])
 
   if (loading) {
-    return <div className="text-center">
+    return <div className="my-5 text-center">
               <Spinner animation="border" role="status">
                 <span className="visually-hidden">Loading...</span>
               </Spinner>

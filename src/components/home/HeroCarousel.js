@@ -38,7 +38,7 @@ export default function HeroCarousel() {
   }, []);
 
   if (loading) {
-    return <div className="text-center">
+    return <div className="my-5 text-center">
               <Spinner animation="border" role="status">
                 <span className="visually-hidden">Loading...</span>
               </Spinner>

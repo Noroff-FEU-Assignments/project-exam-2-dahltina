@@ -41,7 +41,7 @@ export default function GetEnquiries() {
   }, []);
 
   if (loading) {
-    return <div class="text-center">
+    return <div class="my-5 text-center">
               <Spinner animation="border" role="status">
                 <span className="visually-hidden">Loading...</span>
               </Spinner>
