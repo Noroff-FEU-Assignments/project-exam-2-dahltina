@@ -44,10 +44,7 @@ npm run start
 ```
 
 ### User credentials
-As per now you need to be logged in in order to send form data from contact form and enquiry form.
-
-username: admin <br>
-password: pass1234 <br>
+As per now you need to be logged in in order to send form data from contact form and enquiry form. Please contact me to get user credentials.
 
 ## Contributing
 
